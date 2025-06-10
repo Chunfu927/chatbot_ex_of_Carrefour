@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Carrefour Web</title>
+</head>
+<body>
+    <!-- Topbar Section -->
+    <div class="topbar">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 10px;">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Carrefour Logo" class="logo-img" style="width: 120px; height: auto;">
+            <span class="carrefour-text" style="font-size: 28px; font-weight: bold; font-family: Arial, sans-serif; color: #005BAC;">Carrefour</span>
+        </div>
+
+        <div class="role-switcher" style="display: flex; gap: 10px; align-items: center;">
+            {% for role, description in [
+                ("CaraBunny", "療癒料理兔：專注於分享各種療癒系料理，以溫柔親和的方式為您推薦美食。"),
+                ("CaraMom", "實用家庭兔：擅長推薦經濟實惠且實用的家庭商品，給您溫暖貼心的建議。"),
+                ("CaraDad", "理性生活兔：對家電與科技產品充滿專業知識，提供穩重專業的購物建議。"),
+                ("Peter", "健身活力兔：專注於健身和運動器材的推薦，充滿活力與動感的運動夥伴。")
+            ] %}
+            <div class="role-icon" data-role="{{ role }}">
+                <img src="{{ url_for('static', filename='images/' + role.lower() + '.jpg') }}" 
+                     alt="{{ role }}" 
+                     class="role-img" 
+                     title="{{ description }}">
+                <div class="role-tooltip">{{ description }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="user-options" style="display: flex; gap: 8px; align-items: center;">
+            <div class="option-item">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>購物車</span>
+            </div>
+            <div class="option-item">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span>登入</span>
+            </div>
+            <div class="option-item">
+                <i class="fa-solid fa-user-plus"></i>
+                <span>註冊</span>
+            </div>
+            <div class="option-item">
+                <i class="fa-solid fa-globe"></i>
+                <span>語言</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar">
+            <ul>
+                <li>
+                    <details>
+                        <summary>最新消息</summary>
+                        <ul class="submenu">
+                            <li><a href="#">注目活動</a></li>
+                            <li><a href="#">錢包活動</a></li>
+                            <li><a href="#">會員活動</a></li>
+                            <li><a href="#">聯名卡活動</a></li>
+                            <li><a href="#">新聞中心</a></li>
+                            <li><a href="#">公告訊息</a></li>
+                            <li><a href="#">得獎公告</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>促銷目錄</summary>
+                        <ul class="submenu">
+                            <li><a href="#">全部促銷目錄</a></li>
+                            <li><a href="#">量販促銷</a></li>
+                            <li><a href="#">主題企劃</a></li>
+                            <li><a href="#">促銷快報</a></li>
+                            <li><a href="#">超市促銷</a></li>
+                            <li><a href="#">新店開幕</a></li>
+                            <li><a href="#">目錄更正公告</a></li>
+                            <li><a href="#">預購目錄應記載事項</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>生活專欄</summary>
+                        <ul class="submenu">
+                            <li><a href="#">家的廚房</a></li>
+                            <li><a href="#">品酒初學</a></li>
+                            <li><a href="#">夯品開箱</a></li>
+                            <li><a href="#">美好生活</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>健康樂活</summary>
+                        <ul class="submenu">
+                            <li><a href="#">從ｉ開始</a></li>
+                            <li><a href="#">自有品牌</a></li>
+                            <li><a href="#">真食嚴選</a></li>
+                            <li><a href="#">動物福利宣言</a></li>
+                            <li><a href="#">檢驗報告</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>社會責任</summary>
+                        <ul class="submenu">
+                            <li><a href="#">社會公益</a></li>
+                            <li><a href="#">概念店</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>顧客服務</summary>
+                        <ul class="submenu">
+                            <li><a href="#">家樂福APP</a></li>
+                            <li><a href="#">自助結帳</a></li>
+                            <li><a href="#">查詢維修進度</a></li>
+                            <li><a href="#">分店服務</a></li>
+                            <li><a href="#">分店資訊</a></li>
+                            <li><a href="#">商務服務</a></li>
+                            <li><a href="#">聯絡我們</a></li>
+                            <li><a href="#">常見問題</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>關於我們</summary>
+                        <ul class="submenu">
+                            <li><a href="#">家樂福簡介</a></li>
+                            <li><a href="#">會員權益</a></li>
+                            <li><a href="#">人才招募</a></li>
+                            <li><a href="#">量販店</a></li>
+                            <li><a href="#">超市</a></li>
+                            <li><a href="#">購物中心</a></li>
+                            <li><a href="#">禮物卡</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <div class="robot-gif">
+                <img src="{{ url_for('static', filename='gifs/default.gif') }}" alt="Robot GIF" id="robot-gif">
+            </div>
+
+            <div class="chat-area">
+                <div class="chat-display" id="chat-display"></div>
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="輸入訊息...">
+                    <button id="send-btn">發送</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 優化推薦商品區域，確保結構一致，方便 JS 動態插入商品卡片 -->
+        <!-- Right Sidebar -->
+        <div class="right-sidebar">
+            <h3>推薦商品</h3>
+            <div class="recommended-products" id="recommended-products">
+                <!-- 初始提示文字 -->
+                <p class="no-products">尚無推薦商品</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
