@@ -66,6 +66,3 @@ carrefour_web/
 - 請勿將 API 金鑰上傳至公開倉庫。
 - 若需自訂商品資料，可於 [`carrefour_web/app.py`](carrefour_web/app.py) 的 `product_data` 變數中修改。
 
-## 聯絡方式
-
-如有問題，歡迎聯絡專案維護者。
