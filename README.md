@@ -1,5 +1,3 @@
-# chatbot_ex_of_Carrefour
-
 # Carrefour Web
 
 Carrefour Web 是一個以 Flask 為後端、結合 Gemini LLM 智能推薦與多角色互動的家樂福商品推薦聊天網站。用戶可選擇不同角色（如療癒料理兔、實用家庭兔等），與 AI 進行對話並獲得個性化商品推薦。
